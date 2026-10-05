@@ -36,3 +36,4 @@ prisma/migrations/dev.db
 # uploads (kullanıcı yüklemeleri)
 /public/uploads/*
 !/public/uploads/.gitkeep
+.env*
