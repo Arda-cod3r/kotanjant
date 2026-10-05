@@ -84,8 +84,13 @@ export function normalizePhone(input: string): string {
 /** 5xxxxxxxxx (10 hane) → "0555 000 00 00" */
 export function formatPhoneTR(input: string): string {
   const d = normalizePhone(input);
+  if (!d) return "";
   const parts = [d.slice(0, 3), d.slice(3, 6), d.slice(6, 8), d.slice(8, 10)].filter(Boolean);
-  return [d ? "0" : "", ...parts].join(" ").trim();
+  // Baştaki "0" ile gruplar tek boşlukla birleşir: "0555 000 00 00" (14 karakter).
+  // Not: eskiden `["0", ...parts].join(" ")` fazladan boşluk üretiyordu
+  // ("0 555 000 00 00" = 15 karakter) ve input'un maxLength=14 sınırına
+  // takıldığı için son hane girilemiyordu.
+  return `0${parts.join(" ")}`;
 }
 
 /** Türk cep telefonu geçerli mi? (10 hane ve 5 ile başlamalı) */
