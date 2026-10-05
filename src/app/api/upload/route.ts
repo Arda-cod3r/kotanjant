@@ -1,15 +1,13 @@
 import { NextResponse } from "next/server";
-import { mkdir, writeFile } from "node:fs/promises";
-import { join } from "node:path";
-import { randomUUID } from "node:crypto";
 import { requireAdmin } from "@/lib/auth";
+import { put } from "@vercel/blob";
 
 export const runtime = "nodejs";
 
 const MAX_SIZE = 8 * 1024 * 1024; // 8 MB
 const ALLOWED = ["image/png", "image/jpeg", "image/webp", "image/svg+xml", "image/avif"];
 
-// POST /api/upload  → ürün görselleri (çoklu) yükler, public/uploads altına yazar.
+// POST /api/upload  → ürün görselleri (çoklu) yükler, Vercel Blob üzerine yazar.
 export async function POST(request: Request) {
   const admin = await requireAdmin();
   if (!admin) {
@@ -22,9 +20,6 @@ export async function POST(request: Request) {
   if (files.length === 0) {
     return NextResponse.json({ error: "Yüklenecek dosya bulunamadı." }, { status: 400 });
   }
-
-  const uploadDir = join(process.cwd(), "public", "uploads");
-  await mkdir(uploadDir, { recursive: true });
 
   const uploaded: { url: string; name: string }[] = [];
 
@@ -39,11 +34,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: `${file.name} 8MB sınırını aşıyor.` }, { status: 413 });
     }
 
-    const ext = file.name.split(".").pop()?.toLowerCase() ?? "png";
-    const fileName = `${Date.now()}-${randomUUID().slice(0, 8)}.${ext}`;
-    const bytes = Buffer.from(await file.arrayBuffer());
-    await writeFile(join(uploadDir, fileName), bytes);
-    uploaded.push({ url: `/uploads/${fileName}`, name: file.name });
+    // Dosyayı Vercel Blob bulutuna yükle.
+    // 'addRandomSuffix' varsayılan olarak aktiftir, yani isim çakışmalarını kendisi engeller (örn: jant-kapağı-1abc2.jpg)
+    const blob = await put(file.name, file, {
+      access: "public",
+    });
+
+    uploaded.push({ url: blob.url, name: file.name });
   }
 
   return NextResponse.json({ files: uploaded });
