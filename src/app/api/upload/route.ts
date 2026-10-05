@@ -34,10 +34,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: `${file.name} 8MB sınırını aşıyor.` }, { status: 413 });
     }
 
-    // Dosyayı Vercel Blob bulutuna yükle.
-    // 'addRandomSuffix' varsayılan olarak aktiftir, yani isim çakışmalarını kendisi engeller (örn: jant-kapağı-1abc2.jpg)
+    // Vercel Blob'a yükle.
+    // Not: `addRandomSuffix` put için VARSAYILAN OLARAK false'tur. Aynı isimli dosya
+    // tekrar yüklenince aynı pathname oluşur ve kütüphane "blob zaten var" hatası verir.
+    // true ile her yüklemeye benzersiz bir son ek eklenir (örn: jant-kapagi-1abc2.jpg).
     const blob = await put(file.name, file, {
       access: "public",
+      addRandomSuffix: true,
+      contentType: file.type,
     });
 
     uploaded.push({ url: blob.url, name: file.name });
