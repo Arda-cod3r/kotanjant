@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Tasarım tokenları (Tailwind v4 @theme).
+   Kurumsal kırmızı marka rengi + nötr "ink" skalası + fırsat için amber.
+--------------------------------------------------------------------------- */
+@theme {
+  --color-brand-50: #fef2f3;
+  --color-brand-100: #fde3e5;
+  --color-brand-200: #fbcdd1;
+  --color-brand-300: #f7a9b0;
+  --color-brand-400: #f17784;
+  --color-brand-500: #e5475a;
+  --color-brand-600: #d11f36;
+  --color-brand-700: #b01529;
+  --color-brand-800: #931527;
+  --color-brand-900: #7d1626;
+  --color-brand-950: #450610;
+
+  --color-ink-50: #f6f7f9;
+  --color-ink-100: #eceef2;
+  --color-ink-200: #d5d9e2;
+  --color-ink-300: #b1b9c9;
+  --color-ink-400: #8792aa;
+  --color-ink-500: #687590;
+  --color-ink-600: #535e77;
+  --color-ink-700: #444c60;
+  --color-ink-800: #2c3648;
+  --color-ink-900: #111a2e;
+  --color-ink-950: #080d1a;
+
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+
+  /* Kurumsal/resmi görünüm: köşe yuvarlamaları kaldırıldı.
+     (rounded-full daireler — logo, avatar, rozet — etkilenmez.) */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+
+  --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif;
+
+  --animate-fade-up: fade-up 0.5s ease-out both;
+  --animate-marquee: marquee 24s linear infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@layer base {
+  html {
+    /* Not: Next.js App Router sayfa geçişlerinde kaydırmayı kendisi en başa
+       alır. Global `scroll-behavior: smooth`, bu sıfırlamayı yavaşlattığı ve
+       geçiş sırasında sayfanın eski konumunda (çok aşağıda) kalmasına yol
+       açtığı için kaldırıldı. Programatik geçiş kaydırması artık anındadır. */
+    /* Sticky header + kategori navigasyonu yüksekliği kadar boşluk bırak:
+       böylece çapa/scroll-to-top hedefleri header'ın altında kalmaz. */
+    scroll-padding-top: 11rem;
+  }
+
+  body {
+    @apply bg-white text-ink-900 antialiased;
+  }
+
+  /* Odak halkası erişilebilirlik için tutarlı */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-600;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-ink-100 bg-white shadow-sm;
+  }
+
+  /* Çok satırlı metin kısaltma */
+  .line-clamp-2-custom {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="640" viewBox="0 0 1600 640">
+  <defs>
+    <linearGradient id="h" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+    <radialGradient id="hg" cx="0.78" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#c084fc" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#c084fc" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="640" fill="url(#h)"/>
+  <rect width="1600" height="640" fill="url(#hg)"/>
+  <g transform="translate(1088 320)" opacity="0.95">
+    <circle r="220" fill="#0a0f1a" stroke="#475569" stroke-width="10"/>
+    <circle r="160" fill="#111827"/>
+    <circle r="160" fill="none" stroke="#c084fc" stroke-width="12"/>
+    <line x1="0" y1="0" x2="150" y2="0" stroke="#c084fc" stroke-width="14" stroke-linecap="round"/><line x1="0" y1="0" x2="106.06601717798213" y2="106.06601717798212" stroke="#c084fc" stroke-width="14" stroke-linecap="round"/><line x1="0" y1="0" x2="9.184850993605149e-15" y2="150" stroke="#c084fc" stroke-width="14" stroke-linecap="round"/><line x1="0" y1="0" x2="-106.06601717798212" y2="106.06601717798213" stroke="#c084fc" stroke-width="14" stroke-linecap="round"/><line x1="0" y1="0" x2="-150" y2="1.8369701987210297e-14" stroke="#c084fc" stroke-width="14" stroke-linecap="round"/><line x1="0" y1="0" x2="-106.06601717798215" y2="-106.06601717798212" stroke="#c084fc" stroke-width="14" stroke-linecap="round"/><line x1="0" y1="0" x2="-2.7554552980815446e-14" y2="-150" stroke="#c084fc" stroke-width="14" stroke-linecap="round"/><line x1="0" y1="0" x2="106.0660171779821" y2="-106.06601717798215" stroke="#c084fc" stroke-width="14" stroke-linecap="round"/>
+    <circle r="52" fill="#1f2937" stroke="#c084fc" stroke-width="10"/>
+  </g>
+  <text x="90" y="280" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="34" letter-spacing="8" fill="#c084fc">KOTANJANT</text>
+  <text x="90" y="360" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="62" font-weight="800" fill="#f8fafc">Kışa Hazır Aksesuar Seti</text>
+  <text x="90" y="430" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28" fill="#cbd5e1">Silecek, paspas ve jant koruma</text>
+</svg>

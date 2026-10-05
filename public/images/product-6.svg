@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#3f3f46"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#a3e635" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#a3e635" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <circle cx="500" cy="460" r="510" fill="url(#glow)"/>
+  <circle cx="500" cy="460" r="300" fill="#0a0f1a" stroke="#475569" stroke-width="18"/>
+  <circle cx="500" cy="460" r="216" fill="#111827"/>
+  <circle cx="500" cy="460" r="216" fill="none" stroke="#a3e635" stroke-width="15"/>
+  <g><line x1="500" y1="460" x2="760" y2="460" stroke="#a3e635" stroke-width="27" stroke-linecap="round" opacity="0.9"/><line x1="500" y1="460" x2="710.3444185374864" y2="612.824165596043" stroke="#a3e635" stroke-width="27" stroke-linecap="round" opacity="0.9"/><line x1="500" y1="460" x2="580.3444185374864" y2="707.27469423674" stroke="#a3e635" stroke-width="27" stroke-linecap="round" opacity="0.9"/><line x1="500" y1="460" x2="419.6555814625137" y2="707.27469423674" stroke="#a3e635" stroke-width="27" stroke-linecap="round" opacity="0.9"/><line x1="500" y1="460" x2="289.6555814625137" y2="612.824165596043" stroke="#a3e635" stroke-width="27" stroke-linecap="round" opacity="0.9"/><line x1="500" y1="460" x2="240" y2="460.00000000000006" stroke="#a3e635" stroke-width="27" stroke-linecap="round" opacity="0.9"/><line x1="500" y1="460" x2="289.6555814625136" y2="307.175834403957" stroke="#a3e635" stroke-width="27" stroke-linecap="round" opacity="0.9"/><line x1="500" y1="460" x2="419.6555814625136" y2="212.72530576326008" stroke="#a3e635" stroke-width="27" stroke-linecap="round" opacity="0.9"/><line x1="500" y1="460" x2="580.3444185374863" y2="212.72530576326005" stroke="#a3e635" stroke-width="27" stroke-linecap="round" opacity="0.9"/><line x1="500" y1="460" x2="710.3444185374863" y2="307.1758344039569" stroke="#a3e635" stroke-width="27" stroke-linecap="round" opacity="0.9"/></g>
+  <circle cx="500" cy="460" r="78" fill="#1f2937" stroke="#a3e635" stroke-width="15"/>
+  <circle cx="500" cy="460" r="30" fill="#a3e635"/>
+  <text x="500" y="904" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="52" font-weight="700" fill="#f8fafc">Parlak Gümüş Kapak 15"</text>
+  <text x="500" y="952" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="30" fill="#94a3b8">Paslanmaz Klipsli</text>
+</svg>
