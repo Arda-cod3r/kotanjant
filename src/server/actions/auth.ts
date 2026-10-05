@@ -40,7 +40,8 @@ export async function loginAction(_prev: AuthState, formData: FormData): Promise
   let user;
   try {
     user = await prisma.user.findUnique({ where: { email: parsed.data.email } });
-  } catch {
+  } catch (error) {
+    console.error("[auth] Giriş sırasında veritabanı hatası:", error);
     return { error: "Veritabanına ulaşılamıyor. Lütfen daha sonra tekrar deneyin." };
   }
 
@@ -109,7 +110,8 @@ export async function registerAction(_prev: AuthState, formData: FormData): Prom
       email: user.email,
       role: user.role,
     });
-  } catch {
+  } catch (error) {
+    console.error("[auth] Kayıt sırasında veritabanı hatası:", error);
     return { error: "Kayıt oluşturulamadı. Lütfen tekrar deneyin." };
   }
 
