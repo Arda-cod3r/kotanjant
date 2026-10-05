@@ -217,5 +217,5 @@ Detaylı katman açıklaması ve veri modeli için: [`docs/ARCHITECTURE.md`](doc
 
 ## Ek
 
-`backend/` ve `frontend/` klasörleri projenin önceki (başka bir uygulamaya ait) iskeletinden
-kalan boş klasörlerdir; bu proje tarafından kullanılmaz ve güvenle silinebilir.
+> Not: Projenin ilk sürümünde yer alan ve başka bir uygulamadan kalan kullanılmayan
+> `backend/` ile `frontend/` iskelet klasörleri kaldırılmıştır.
