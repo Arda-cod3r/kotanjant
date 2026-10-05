@@ -207,6 +207,11 @@ Detaylı katman açıklaması ve veri modeli için: [`docs/ARCHITECTURE.md`](doc
   (GHSA-vfj7-8cjw-p6xm) gösterir; bu paketler çalışma zamanı paketine dahil değildir.
   `deepmerge-ts` ve `mysql2` için `package.json` `overrides` alanıyla yamalı sürümler
   sabitlenmiştir.
+- **Kurulum script'leri (npm 12):** npm 12, bağımlılık install-script'lerini (postinstall/preinstall)
+  varsayılan olarak **bloklar**. Prisma, `@prisma/engines`, esbuild gibi araçların gerekli
+  script'leri `package.json` → **`allowScripts`** alanıyla onaylanmıştır (Vercel/npm 12 build'i
+  için gereklidir). Yeni bir paket eklendiğinde `npm install-scripts ls` ile kontrol edip
+  `npm install-scripts approve <pkg>` ile onaylayın.
 
 ---
 
