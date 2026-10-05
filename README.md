@@ -195,7 +195,10 @@ Detaylı katman açıklaması ve veri modeli için: [`docs/ARCHITECTURE.md`](doc
 
 - **Görseller:** Ürün/hero görselleri demo amaçlı markalı **SVG**'lerdir (`public/images/`,
   `node scripts/generate-placeholders.mjs` ile üretilir). Gerçek ürün görselleri yönetim
-  panelinden **yüklenir** ve `public/uploads/` altında saklanır. Üretimde nesne depolama (S3/R2) önerilir.
+  panelinden **yüklenir**: yerelde `public/uploads/` altına yazılır; üretimde (Vercel) ise
+  **Vercel Blob** nesne deposuna yüklenir. Bunun için Vercel'de bir **Blob store** oluşturun
+  (Storage → Blob); `BLOB_READ_WRITE_TOKEN` ortam değişkeni otomatik eklenir. Sunucusuz ortamda
+  dosya sistemi salt-okunur olduğu için `public/` altına yazma yalnızca yerelde çalışır.
 - **Kategori ağacı:** `Category.parentId` self-relation ile sınırsız derinlik destekler.
 - **Sipariş bütünlüğü:** `OrderItem` sipariş anındaki ürün bilgisini (snapshot) tutar; ürün
   silinse bile geçmiş fatura bozulmaz.
